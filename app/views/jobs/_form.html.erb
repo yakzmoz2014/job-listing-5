@@ -1,0 +1,6 @@
+
+<%= simple_form_for @job do |f| %>
+  <%= f.input :title, label: "职位" %>
+  <%= f.input :description, label: "描述" %>
+  <%= f.submit "Submit", class: "btn btn-primary"%>
+<% end %>
