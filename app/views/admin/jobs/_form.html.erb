@@ -1,5 +1,9 @@
 <%= simple_form_for [:admin, @job] do |f| %>
   <%= f.input :title, label: "职位" %>
   <%= f.input :description, label: "描述" %>
+  <%= f.input :wage_upper_bound, label: "薪金上限" %>
+  <%= f.input :wage_lower_bound, label: "薪金下限"%>
+  <%= f.input :contact_email, label: "联系邮箱" %>
+  <%= f.input :is_hidden %>
   <%= f.submit "Submit", class: "btn btn-primary" %>
 <% end %>
