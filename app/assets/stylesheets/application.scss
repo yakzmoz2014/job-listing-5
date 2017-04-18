@@ -19,6 +19,7 @@
 @import "bootstrap-sprockets";
 @import "font-awesome";
 
+// background image
 .jumbotron {
   background-image:url('https://static.pexels.com/photos/47426/pexels-photo-47426.jpeg');
   background-repeat: no-repeat;
@@ -26,6 +27,7 @@
   padding-bottom: 210px;
 }
 
+// title
 .title {
   font-family: "Times New Roman", Times, serif;
   text-align: center;
@@ -33,13 +35,13 @@
   margin-bottom: 80px;
   color: white;
 }
-
+// slogan
 .slogan {
   margin-top: 10px;
   margin-bottom: 50px;
   text-align: center;
   color: white;
-  top: 50px;
+  top: 150px;
 }
 
 .lead {
@@ -71,4 +73,13 @@
 .custab:hover{
   box-shadow: 3px 3px 0px transparent;
   transition: 0.5s;
+}
+
+// modify button size
+.btn-lg, .btn-group-lg > .btn {
+    padding: 8px 16px;//通过padding来决定btn的大小
+    font-size: 20px;//btn文字大小
+    letter-spacing: 3px;//调整文字间距
+    border-radius: 3px;//btn圆角
+    width: 280px;//这里用指定宽度把btn拉得更长
 }
