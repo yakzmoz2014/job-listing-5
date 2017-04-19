@@ -28,12 +28,31 @@
   padding-bottom: 210px;
 }
 
+.jumbotron h1, .jumbotron .h1 {
+  text-align:  center;
+  color: #FFF;
+  padding: 50px 20px 0;
+}
+
+.jumbotron p {
+  margin: auto;
+  font-size: 26px;
+  max-width: 800px;
+  padding: 20px;
+  text-align: center;
+  color: #FFF;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
 // title
 .title {
   text-align: center;
-  margin-top: 100px;
-  margin-bottom: 80px;
-  color: white;
+  max-width: 800px;
+  margin: auto;
+  border-top-right-radius: 3px;
+  border-top-left-radius: 3px;
+
 }
 // slogan
 .slogan {
@@ -75,11 +94,367 @@
   transition: 0.5s;
 }
 
-// modify button size
-.btn-lg, .btn-group-lg > .btn {
-    padding: 8px 16px;//通过padding来决定btn的大小
-    font-size: 20px;//btn文字大小
-    letter-spacing: 3px;//调整文字间距
-    border-radius: 3px;//btn圆角
-    width: 280px;//这里用指定宽度把btn拉得更长
+
+// navbar
+.navbar-default {
+  background-color: #292C2F; //背景色
+  border-color: #292C2F; //边框色
+  margin-bottom: 0;// 底部margin不撑开距离
+}
+
+@media (min-width: 768px) {
+  .navbar {
+    border-radius: 0; // 导航栏没有圆角
+  }
+}
+
+// 修改logo字体颜色和对齐样式
+ .navbar-default .navbar-brand {
+   color: #FFF; //字体颜色
+
+   padding: 10px 15px; //上下10px，左右15px
+   line-height: 30px; //文字行高
+ }
+
+ .navbar-default .navbar-brand:hover,
+ .navbar-default .navbar-brand:focus {
+   color: #bababa; //鼠标放置在链接上的文字颜色
+   background-color: transparent; //鼠标放置在链接上的背景颜色，这里设为透明
+ }
+
+ // 修改导航栏链接颜色
+
+  .navbar-default .navbar-nav > li > a{
+   color: #FFF;
+
+ }
+
+ .navbar-default .navbar-nav > li > a:hover,
+ .navbar-default .navbar-nav > li > a:focus {
+   color: #17B1F7;
+
+   background-color: transparent;
+ }
+ .navbar-default .navbar-nav > .active > a,
+ .navbar-default .navbar-nav > .active > a:hover,
+ .navbar-default .navbar-nav > .active > a:focus {
+   color: #17B1F7;
+
+   background-color: #17B1F7;
+
+ }
+
+ .navbar-default .navbar-nav > .open > a,
+ .navbar-default .navbar-nav > .open > a:focus,
+ .navbar-default .navbar-nav > .open > a:hover {
+   background-color: #FFE0B2;
+   color: #212121;
+ }
+
+ // logo image style
+ .navbar-brand > img {
+   display: inline-block;
+   margin-right: 10px;
+   width: 32px;
+   height: 32px;
+ }
+
+ // 大图满屏显示
+ .container-fluid .jumbotron {
+   padding-bottom: 110px; //内部的底部边距，设置后按钮就不会很靠近底部
+   margin: 0 -15px 20px; // top:0, left & right -15px, bottom:20px;
+   border-radius: 0; //圆倒角为0
+ }
+
+ // Modify button
+
+  .btn-info {
+   color: #fff; //text color
+   background-color: #17B1F7;//background color
+   //border-color: #17B1F7;//border color
+
+ }
+
+ .btn-info:hover {
+   background-color: #00acf9; //鼠标停留在按钮上，按钮的颜色
+   border-color: #00acf9; //鼠标停留在按钮上，边框的颜色
+
+ }
+
+ .btn-lg, .btn-group-lg > .btn {
+     padding: 8px 16px;//通过padding来决定btn的大小
+     font-size: 20px;//btn文字大小
+     letter-spacing: 3px;//调整文字间距
+     border-radius: 3px;//btn圆角
+     width: 280px;//这里用指定宽度把btn拉得更长
+ }
+
+ // 设置登录弹窗样式
+
+ @import url(http://fonts.googleapis.com/css?family=Roboto);
+
+/****** LOGIN MODAL ******/
+.loginmodal-container {
+  padding: 30px;
+  max-width: 350px;
+  width: 100% !important;
+  background-color: #F7F7F7;
+  margin: 0 auto;
+  border-radius: 2px;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  font-family: roboto;
+}
+
+.loginmodal-container h1 {
+  text-align: center;
+  font-size: 1.8em;
+  font-family: roboto;
+}
+
+.loginmodal-container input[type=submit] {
+  width: 100%;
+  display: block;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.loginmodal-container input[type=text], input[type=password] {
+  height: 44px;
+  font-size: 16px;
+  width: 100%;
+  margin-bottom: 10px;
+  -webkit-appearance: none;
+  background: #fff;
+  border: 1px solid #d9d9d9;
+  border-top: 1px solid #c0c0c0;
+  /* border-radius: 2px; */
+  padding: 0 8px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+
+.loginmodal-container input[type=text]:hover, input[type=password]:hover {
+  border: 1px solid #b9b9b9;
+  border-top: 1px solid #a0a0a0;
+  -moz-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+  -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.loginmodal {
+  text-align: center;
+  font-size: 14px;
+  font-family: 'Arial', sans-serif;
+  font-weight: 700;
+  height: 36px;
+  padding: 0 8px;
+/* border-radius: 3px; */
+/* -webkit-user-select: none;
+  user-select: none; */
+}
+
+.loginmodal-submit {
+  /* border: 1px solid #3079ed; */
+  border: 0px;
+  color: #fff;
+  text-shadow: 0 1px rgba(0,0,0,0.1);
+  background-color: #4d90fe;
+  padding: 17px 0px;
+  font-family: roboto;
+  font-size: 14px;
+  /* background-image: -webkit-gradient(linear, 0 0, 0 100%,   from(#4d90fe), to(#4787ed)); */
+}
+
+.loginmodal-submit:hover {
+  /* border: 1px solid #2f5bb7; */
+  border: 0px;
+  text-shadow: 0 1px rgba(0,0,0,0.3);
+  background-color: #357ae8;
+  /* background-image: -webkit-gradient(linear, 0 0, 0 100%,   from(#4d90fe), to(#357ae8)); */
+}
+
+.loginmodal-container a {
+  text-decoration: none;
+  color: #666;
+  font-weight: 400;
+  text-align: center;
+  display: inline-block;
+  opacity: 0.6;
+  transition: opacity ease 0.5s;
+}
+
+.login-help{
+  font-size: 12px;
+}
+
+// footer
+
+.footer-distributed{
+	background-color: #292c2f;
+	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+	box-sizing: border-box;
+	width: 100%;
+	text-align: left;
+	font: bold 16px sans-serif;
+
+	padding: 55px 50px;
+	margin-top: 80px;
+}
+
+.footer-distributed .footer-left,
+.footer-distributed .footer-center,
+.footer-distributed .footer-right{
+	display: inline-block;
+	vertical-align: top;
+}
+
+/* Footer left */
+
+.footer-distributed .footer-left{
+	width: 40%;
+}
+
+/* The company logo */
+
+.footer-distributed h3{
+	color:  #ffffff;
+	font: normal 36px 'Cookie', cursive;
+	margin: 0;
+}
+
+.footer-distributed h3 span{
+	color:  #5383d3;
+}
+
+/* Footer links */
+
+.footer-distributed .footer-links{
+	color:  #ffffff;
+	margin: 20px 0 12px;
+	padding: 0;
+}
+
+.footer-distributed .footer-links a{
+	display:inline-block;
+	line-height: 1.8;
+	text-decoration: none;
+	color:  inherit;
+}
+
+.footer-distributed .footer-company-name{
+	color:  #8f9296;
+	font-size: 14px;
+	font-weight: normal;
+	margin: 0;
+}
+
+/* Footer Center */
+
+.footer-distributed .footer-center{
+	width: 35%;
+}
+
+.footer-distributed .footer-center i{
+	background-color:  #33383b;
+	color: #ffffff;
+	font-size: 25px;
+	width: 38px;
+	height: 38px;
+	border-radius: 50%;
+	text-align: center;
+	line-height: 42px;
+	margin: 10px 15px;
+	vertical-align: middle;
+}
+
+.footer-distributed .footer-center i.fa-envelope{
+	font-size: 17px;
+	line-height: 38px;
+}
+
+.footer-distributed .footer-center p{
+	display: inline-block;
+	color: #ffffff;
+	vertical-align: middle;
+	margin:0;
+}
+
+.footer-distributed .footer-center p span{
+	display:block;
+	font-weight: normal;
+	font-size:14px;
+	line-height:2;
+}
+
+.footer-distributed .footer-center p a{
+	color:  #5383d3;
+	text-decoration: none;;
+}
+
+
+/* Footer Right */
+
+.footer-distributed .footer-right{
+	width: 20%;
+}
+
+.footer-distributed .footer-company-about{
+	line-height: 20px;
+	color:  #92999f;
+	font-size: 13px;
+	font-weight: normal;
+	margin: 0;
+}
+
+.footer-distributed .footer-company-about span{
+	display: block;
+	color:  #ffffff;
+	font-size: 14px;
+	font-weight: bold;
+	margin-bottom: 20px;
+}
+
+.footer-distributed .footer-icons{
+	margin-top: 25px;
+}
+
+.footer-distributed .footer-icons a{
+	display: inline-block;
+	width: 35px;
+	height: 35px;
+	cursor: pointer;
+	background-color:  #33383b;
+	border-radius: 2px;
+
+	font-size: 20px;
+	color: #ffffff;
+	text-align: center;
+	line-height: 35px;
+
+	margin-right: 3px;
+	margin-bottom: 5px;
+}
+
+/* If you don't want the footer to be responsive, remove these media queries */
+
+@media (max-width: 880px) {
+
+	.footer-distributed{
+		font: bold 14px sans-serif;
+	}
+
+	.footer-distributed .footer-left,
+	.footer-distributed .footer-center,
+	.footer-distributed .footer-right{
+		display: block;
+		width: 100%;
+		margin-bottom: 40px;
+		text-align: center;
+	}
+
+	.footer-distributed .footer-center i{
+		margin-left: 0;
+	}
+
 }
