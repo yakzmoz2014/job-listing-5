@@ -20,7 +20,79 @@
 @import "font-awesome";
 
 
-// background image
+
+
+//------------navbar----------
+
+
+ .navbar-brand > img {
+     display: inline-block; //图片和链接文字显示在同一行
+     margin-right: 10px; //图片和链接文字拉开一点距离
+     margin-bottom: 10px;
+     width: 28px; //定制图片宽度
+     height: 28px; //定制图片高度
+ }
+
+ .navbar-default {
+     background-color: #323436;  //背景颜色
+     border-color: #323436; //边框色
+     margin-bottom: 0; //底部 margin 不撑开距离
+ }
+
+ //去掉导航栏的倒角
+
+  @media (min-width: 768px) {
+   .navbar {
+     border-radius: 0; //圆角为0
+   }
+ }
+
+  .navbar-default .navbar-brand {
+   color: #F4F4F4; //字体颜色
+   padding: 10px 15px; //上下10px，左右15px
+   line-height: 30px; //文字行高
+ }
+
+ .navbar-default .navbar-brand:hover,
+ .navbar-default .navbar-brand:focus {
+   color: #616B6B; //鼠标放置在链接上的文字颜色
+   background-color: transparent; //鼠标放置在链接上的背景颜色，这里设为透明
+ }
+
+  .navbar-default .navbar-nav > li > a{
+   color: #F4F4F4;
+ }
+
+ .navbar-default .navbar-nav > li > a:hover,
+ .navbar-default .navbar-nav > li > a:focus {
+   color: #616B6B;
+   background-color: transparent;
+ }
+ .navbar-default .navbar-nav > .active > a,
+ .navbar-default .navbar-nav > .active > a:hover,
+ .navbar-default .navbar-nav > .active > a:focus {
+   color: #616B6B;
+   background-color: #FFE0B2;
+
+ }
+
+ .navbar-default .navbar-nav > .open > a,
+ .navbar-default .navbar-nav > .open > a:focus,
+ .navbar-default .navbar-nav > .open > a:hover {
+   background-color: #616B6B;
+
+   color: #212121;
+
+ }
+
+// ---------jumbotron------------
+
+ .container-fluid .jumbotron{
+   padding-bottom: 110px;//内部的底部边距，这样按钮不会很靠近底部了
+   margin: 0 -15px 20px;//顶部margin为0，因此可以直接接着导航栏；左右margin为负15，因此可以顶到浏览器的边缘（抵消 container-fluid 的 15px 左右padding);底部margin为20，会跟下面的内容撑开距离
+   border-radius: 0;//圆角为0
+ }
+
 .jumbotron {
   background-image:url('https://static.pexels.com/photos/47426/pexels-photo-47426.jpeg');
   background-repeat: no-repeat;
@@ -45,7 +117,7 @@
   border-bottom-left-radius: 3px;
 }
 
-// title
+
 .title {
   text-align: center;
   max-width: 800px;
@@ -54,7 +126,7 @@
   border-top-left-radius: 3px;
 
 }
-// slogan
+
 .slogan {
   margin-top: 10px;
   margin-bottom: 50px;
@@ -81,6 +153,110 @@
     margin-top: 60px;
 }
 
+//-----------section-----------
+
+// section-title
+.section {
+  padding-top: 20px;
+  padding-bottom: 85px;
+  &.odd {
+    background: #FFF;
+  }
+}
+.section-title {
+  text-align: center;
+  font-size: 35px;
+  color: #858c8b;
+  line-height: 34px;
+}
+
+.section-content {
+  width: 1000px;
+  padding-top: 60px;
+  margin: 0 auto;
+  text-align: center;
+  line-height: 1.8em;
+  .title {
+    padding: 20px 0 10px;
+    color: #333333;
+    font-size: 24px;
+    font-weight: bold;
+  }
+  .description {
+    width: 420px;
+    margin: 0 auto;
+    line-height: 26px;
+    margin-bottom: 20px;
+  }
+  .col-3 {
+    padding-top: 20px;
+    .item {
+      width: 300px;
+      margin-left: 33px;
+      position: relative;
+      top: 0;
+      -webkit-transition: all .4s;
+      transition: all .4s;
+      &:hover {
+        position: relative;
+        top: -5px;
+      }
+      .advantage-img {
+        width: 60px;
+        height: 60px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+      }
+      .advantage-title {
+        margin-top: 20px;
+        margin-bottom: 10px;
+        color: #333333;
+        font-weight: bold;
+        line-height: 24px;
+        font-size: 16px;
+      }
+    }
+  }
+}
+
+
+//-----------content--------------
+
+.story {
+  font-size: 35px;
+  color: #616B6B;
+}
+
+.content-section-a {
+    padding: 50px 0;
+    background-color: #f8f8f8;
+}
+
+.content-section-b {
+    padding: 50px 0;
+    border-top: 1px solid #e7e7e7;
+    border-bottom: 1px solid #e7e7e7;
+}
+
+.section-heading-spacer {
+    float: left;
+    width: 200px;
+    border-top: 3px solid #e7e7e7;
+}
+
+.section-heading {
+  font-size: 25px;
+  color: #0991D0;
+  margin-bottom: 30px;
+}
+
+.lead {
+    font-size: 18px;
+    font-weight: 400;
+}
+
+//-----------table shadow effect-----------
+
 .custab{
   border: 1px solid #ccc;
   padding: 5px;
@@ -94,202 +270,7 @@
   transition: 0.5s;
 }
 
-
-// navbar
-.navbar-default {
-  background-color: #292C2F; //背景色
-  border-color: #292C2F; //边框色
-  margin-bottom: 0;// 底部margin不撑开距离
-}
-
-@media (min-width: 768px) {
-  .navbar {
-    border-radius: 0; // 导航栏没有圆角
-  }
-}
-
-// 修改logo字体颜色和对齐样式
- .navbar-default .navbar-brand {
-   color: #FFF; //字体颜色
-
-   padding: 10px 15px; //上下10px，左右15px
-   line-height: 30px; //文字行高
- }
-
- .navbar-default .navbar-brand:hover,
- .navbar-default .navbar-brand:focus {
-   color: #bababa; //鼠标放置在链接上的文字颜色
-   background-color: transparent; //鼠标放置在链接上的背景颜色，这里设为透明
- }
-
- // 修改导航栏链接颜色
-
-  .navbar-default .navbar-nav > li > a{
-   color: #FFF;
-
- }
-
- .navbar-default .navbar-nav > li > a:hover,
- .navbar-default .navbar-nav > li > a:focus {
-   color: #17B1F7;
-
-   background-color: transparent;
- }
- .navbar-default .navbar-nav > .active > a,
- .navbar-default .navbar-nav > .active > a:hover,
- .navbar-default .navbar-nav > .active > a:focus {
-   color: #17B1F7;
-
-   background-color: #17B1F7;
-
- }
-
- .navbar-default .navbar-nav > .open > a,
- .navbar-default .navbar-nav > .open > a:focus,
- .navbar-default .navbar-nav > .open > a:hover {
-   background-color: #FFE0B2;
-   color: #212121;
- }
-
- // logo image style
- .navbar-brand > img {
-   display: inline-block;
-   margin-right: 10px;
-   width: 32px;
-   height: 32px;
- }
-
- // 大图满屏显示
- .container-fluid .jumbotron {
-   padding-bottom: 110px; //内部的底部边距，设置后按钮就不会很靠近底部
-   margin: 0 -15px 20px; // top:0, left & right -15px, bottom:20px;
-   border-radius: 0; //圆倒角为0
- }
-
- // Modify button
-
-  .btn-info {
-   color: #fff; //text color
-   background-color: #17B1F7;//background color
-   //border-color: #17B1F7;//border color
-
- }
-
- .btn-info:hover {
-   background-color: #00acf9; //鼠标停留在按钮上，按钮的颜色
-   border-color: #00acf9; //鼠标停留在按钮上，边框的颜色
-
- }
-
- .btn-lg, .btn-group-lg > .btn {
-     padding: 8px 16px;//通过padding来决定btn的大小
-     font-size: 20px;//btn文字大小
-     letter-spacing: 3px;//调整文字间距
-     border-radius: 3px;//btn圆角
-     width: 280px;//这里用指定宽度把btn拉得更长
- }
-
- // 设置登录弹窗样式
-
- @import url(http://fonts.googleapis.com/css?family=Roboto);
-
-/****** LOGIN MODAL ******/
-.loginmodal-container {
-  padding: 30px;
-  max-width: 350px;
-  width: 100% !important;
-  background-color: #F7F7F7;
-  margin: 0 auto;
-  border-radius: 2px;
-  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-  overflow: hidden;
-  font-family: roboto;
-}
-
-.loginmodal-container h1 {
-  text-align: center;
-  font-size: 1.8em;
-  font-family: roboto;
-}
-
-.loginmodal-container input[type=submit] {
-  width: 100%;
-  display: block;
-  margin-bottom: 10px;
-  position: relative;
-}
-
-.loginmodal-container input[type=text], input[type=password] {
-  height: 44px;
-  font-size: 16px;
-  width: 100%;
-  margin-bottom: 10px;
-  -webkit-appearance: none;
-  background: #fff;
-  border: 1px solid #d9d9d9;
-  border-top: 1px solid #c0c0c0;
-  /* border-radius: 2px; */
-  padding: 0 8px;
-  box-sizing: border-box;
-  -moz-box-sizing: border-box;
-}
-
-.loginmodal-container input[type=text]:hover, input[type=password]:hover {
-  border: 1px solid #b9b9b9;
-  border-top: 1px solid #a0a0a0;
-  -moz-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
-  -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
-  box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
-}
-
-.loginmodal {
-  text-align: center;
-  font-size: 14px;
-  font-family: 'Arial', sans-serif;
-  font-weight: 700;
-  height: 36px;
-  padding: 0 8px;
-/* border-radius: 3px; */
-/* -webkit-user-select: none;
-  user-select: none; */
-}
-
-.loginmodal-submit {
-  /* border: 1px solid #3079ed; */
-  border: 0px;
-  color: #fff;
-  text-shadow: 0 1px rgba(0,0,0,0.1);
-  background-color: #4d90fe;
-  padding: 17px 0px;
-  font-family: roboto;
-  font-size: 14px;
-  /* background-image: -webkit-gradient(linear, 0 0, 0 100%,   from(#4d90fe), to(#4787ed)); */
-}
-
-.loginmodal-submit:hover {
-  /* border: 1px solid #2f5bb7; */
-  border: 0px;
-  text-shadow: 0 1px rgba(0,0,0,0.3);
-  background-color: #357ae8;
-  /* background-image: -webkit-gradient(linear, 0 0, 0 100%,   from(#4d90fe), to(#357ae8)); */
-}
-
-.loginmodal-container a {
-  text-decoration: none;
-  color: #666;
-  font-weight: 400;
-  text-align: center;
-  display: inline-block;
-  opacity: 0.6;
-  transition: opacity ease 0.5s;
-}
-
-.login-help{
-  font-size: 12px;
-}
-
-// footer
-
+// ---------footer---------------
 .footer-distributed{
 	background-color: #292c2f;
 	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
@@ -456,5 +437,73 @@
 	.footer-distributed .footer-center i{
 		margin-left: 0;
 	}
+}
 
+//---------sidebar-------
+
+.sidebar {
+  display: none;
+  position: fixed;
+  z-index: 998;
+  right: 30px;
+  bottom: 30px;
+  width: 40px;
+  height: auto;
+  line-height: 20px;
+  * {
+    box-sizing: border-box;
+  }
+  ul {
+    padding: 0;
+  }
+  li {
+    position: relative;
+    display: block;
+    height: 40px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    text-align: center;
+    cursor: pointer;
+    margin-top: 8px;
+    background: #fbfbfb;
+    line-height: 42px;
+    &:hover {
+      background: #eee;
+    }
+    &:first-child {
+      margin-top: 0;
+    }
+    &.backtop i {
+      font-size: 18px;
+    }
+    &.support {
+      i {
+        font-size: 20px;
+      }
+      .ewm {
+        line-height: 22px;
+        display: none;
+        left: 0px;
+        opacity: 0;
+        position: absolute;
+        z-index: 1;
+        opacity: 0;
+        display: none;
+        left: 0;
+        top: 50%;
+        margin-top: -68px;
+        width: 136px;
+        height: 136px;
+        padding-right: 20px;
+        p {
+          background: #eee;
+          border-radius: 3px;
+          padding: 12px;
+        }
+      }
+    }
+    i {
+      color: #555;
+    }
+  }
 }
