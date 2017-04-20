@@ -9,4 +9,12 @@ class User < ApplicationRecord
   def admin?
     is_admin
   end
+
+  def display_name
+    if self.username.present?
+      self.username
+    else
+      self.email.split("@").first
+    end
+  end
 end

@@ -23,13 +23,14 @@
         <% else %>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <%= current_user.email %>
+              你好，<%= current_user.display_name %>
               <b class="caret"></b>
             </a>
             <ul class="dropdown-menu">
               <% if current_user.admin? %>
-                <li><%= link_to('企业入口', admin_jobs_path) %></li>
+                <li><%= link_to('管理员', admin_jobs_path) %></li>
               <% end %>
+              <li><%= link_to("个人中心", edit_account_user_path(current_user))%>
               <li><%= link_to("退出", destroy_user_session_path, method: :delete) %></li>
             </ul>
           </li>

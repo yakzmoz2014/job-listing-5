@@ -1,9 +1,22 @@
-<%= simple_form_for [:admin, @job] do |f| %>
-  <%= f.input :title, label: "职位" %>
-  <%= f.input :description, label: "描述" %>
-  <%= f.input :wage_upper_bound, label: "薪金上限" %>
-  <%= f.input :wage_lower_bound, label: "薪金下限"%>
-  <%= f.input :contact_email, label: "联系邮箱" %>
-  <%= f.input :is_hidden %>
-  <%= f.submit "Submit", class: "btn btn-primary" %>
-<% end %>
+<div class="form-box">
+  <%= simple_form_for [:admin, @job] do |f| %>
+    <%= f.input :title, label: "职位", input_html: {class: "form-control"}, placeholder: "全栈工程师，UI设计师，PHP程序员……" %>
+
+    <%= f.input :description, label: "描述", input_html: {class: "form-control"} %>
+
+    <%= f.input :wage_lower_bound, label: '薪水:' do %>
+       <%= f.input_field :wage_lower_bound, :as => :string, placeholder: '下限' %> K ~
+       <%= f.input_field :wage_upper_bound, :as => :string, placeholder: '上限' %> K
+    <% end %>
+
+    <%= f.input :location, label: "地点", input_html: { class: "form-control"}, placeholder: "北京/上海/广州/深圳..."%>
+
+    <%= f.input :company, label: "公司名称", input_html: { class: "form-control"} %>
+
+    <%= f.input :contact_email, label: "联系邮箱" , placeholder: "admin@gmail.com"%>
+
+    <%= f.input :is_hidden %>
+    
+    <%= f.submit "提交", class: "btn btn-primary",data: { disable_with: "Submitting..." } %>
+  <% end %>
+</div>

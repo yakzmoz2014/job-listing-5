@@ -55,7 +55,7 @@
 
  .navbar-default .navbar-brand:hover,
  .navbar-default .navbar-brand:focus {
-   color: #616B6B; //鼠标放置在链接上的文字颜色
+   color: #31BAFD; //鼠标放置在链接上的文字颜色
    background-color: transparent; //鼠标放置在链接上的背景颜色，这里设为透明
  }
 
@@ -65,13 +65,13 @@
 
  .navbar-default .navbar-nav > li > a:hover,
  .navbar-default .navbar-nav > li > a:focus {
-   color: #616B6B;
+   color: #31BAFD;
    background-color: transparent;
  }
  .navbar-default .navbar-nav > .active > a,
  .navbar-default .navbar-nav > .active > a:hover,
  .navbar-default .navbar-nav > .active > a:focus {
-   color: #616B6B;
+   color: #31BAFD;
    background-color: #FFE0B2;
 
  }
@@ -268,6 +268,41 @@
 .custab:hover{
   box-shadow: 3px 3px 0px transparent;
   transition: 0.5s;
+}
+
+.form-box {
+  padding-bottom: 40px;
+}
+
+.table {
+  border: 1px solid #e0e6ed;
+  thead > tr > th {
+    background: #eff2f7;
+    border-bottom: 1px solid #e0e6ed;
+  }
+  &.table-striped > tbody > tr:nth-of-type(even) {
+    background-color: #f9f9f9;
+  }
+  &.table-striped > tbody > tr:nth-of-type(odd) {
+    background-color: #fff;
+  }
+  td, th {
+    // border-right: 1px solid #ddd;
+  }
+  .btn {
+    &.btn-info {
+      background: #F0AD4E;
+      border-color: #F0AD4E;
+    }
+    &.btn-warning {
+      background: #62A8EA;
+      border-color: #62A8EA;
+    }
+    &.btn-danger {
+      background: #F96868;
+      border-color: #F96868;
+    }
+  }
 }
 
 // ---------footer---------------

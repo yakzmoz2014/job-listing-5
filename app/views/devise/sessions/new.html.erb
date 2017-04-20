@@ -1,0 +1,36 @@
+
+<div class="login-wrap">
+  <div class="moving-bg">
+    <img src="http://ww1.sinaimg.cn/large/006tKfTcgy1fet9w41qy8j31hc0zgws0.jpg" class="change">
+  </div>
+
+  <div class="registration-wrap">
+    <div class="registration-block">
+      <div class="content clearfix">
+        <div class="right-part fr">
+          <div class="devise">
+            <h2>登录</h2>
+
+            <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+              <%= f.error_notification %>
+
+              <div class="form-inputs">
+                <%= f.input :email, required: true, autofocus: true, label: false, placeholder: "邮箱" %>
+                <%= f.input :password, required: true, label: false, placeholder: "密码" %>
+                <%= f.input :remember_me, inline_label: '记住我', label: false, as: :boolean if devise_mapping.rememberable? %>
+              </div>
+
+              <div class="form-actions">
+                <%= f.button :submit, "登录", class: "registration-btn" %>
+              </div>
+            <% end %>
+
+            <div class="tip">
+              <%= render "devise/shared/links" %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
