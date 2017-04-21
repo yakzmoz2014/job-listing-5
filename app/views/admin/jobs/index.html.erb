@@ -24,7 +24,7 @@
         <td><%= link_to(job.resumes.count, admin_job_resumes_path(job)) %></td>
         <td>
           <span class="label label-success">
-            <td><%= job.wage_lower_bound %>K-<%= job.wage_upper_bound %>K</td>
+            <%= job.wage_lower_bound %>K-<%= job.wage_upper_bound %>K
           </span>
         </td>
         <td>
