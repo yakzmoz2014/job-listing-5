@@ -18,6 +18,10 @@ class User < ApplicationRecord
     end
   end
 
+  def is_member_of?(job)
+    participated_jobs.include?(job)
+  end
+
   has_many :resumes
   has_many :job_relationships
   has_many :participated_jobs, through: :job_relationships, source: :job
