@@ -1,10 +1,25 @@
 
-<h1><%= @job.title %></h1>
-<p>
-  <%= simple_format(@job.description)%>
-</p>
-<br>
+<div class="col-md-12 show">
+  <br>
+  <p class="company_name"><%= link_to(@job.company, '/jobs/search?utf8=✓&q=' + @job.company) %></p>
+  <h2 class="job_title"><%= @job.title %></h2>
 
-<div class="text-center">
-  <%= link_to("提交简历", new_job_resume_path(@job), style: 'font-size: 25px; text-decoration: underline;')%>
+  <p class="info">
+    <span class="salary"> <span class="label label-success"><%= @job.wage_lower_bound %>K</span> - <span class="label label-success"><%= @job.wage_upper_bound %>K</span> </span>
+    <span>|</span>
+    <span><span class="fa fa-map-marker"></span><%= @job.location%></span>
+    <span>|</span>
+    <span><span class="fa fa-calendar"></span><%= formatDate(@job.created_at) %> 发布</span>
+  </p>
+
+  <p class="send-resume">
+    <%= render 'job_apply', :job => @job %>
+  </p>
+
+  <hr>
+
+  <p class="description-title"><strong>职位详情：</strong></p>
+  <p class="description">
+    <%= render_job_description(@job) %>
+  </p>
 </div>

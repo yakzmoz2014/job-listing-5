@@ -14,6 +14,7 @@
   <thead>
     <tr>
       <th>职位</th>
+      <th>工作类型</th>
       <th>薪水</th>
       <th>公司名称</th>
       <th>公司地点</th>
@@ -23,11 +24,12 @@
   <tbody>
     <% @jobs.each do |job| %>
       <tr>
-        <td><%= link_to(job.title, job_path(job)) %></td>
-        <td><span class="label label-success"><%= job.wage_lower_bound %>K-<%= job.wage_upper_bound %>K</span></td>
-        <td><%= job.company %></td>
-        <td><%= job.location %></td>
-        <td><%= job.created_at %></td>
+        <td><i class="fa fa-briefcase" aria-hidden="true"></i> <%= link_to(job.title, job_path(job)) %></td>
+        <td><i class="fa fa-list-alt" aria-hidden="true"></i> <%= job.category %> </td>
+        <td><i class="fa fa-money" aria-hidden="true"></i> <span class="label label-success"><%= job.wage_lower_bound %>K</span> - <span class="label label-success"><%= job.wage_upper_bound %>K</span></td>
+        <td><i class="fa fa-building" aria-hidden="true"></i> <%= job.company %></td>
+        <td><span class="fa fa-map-marker"></span> <%= job.location %></td>
+        <td><i class="fa fa-calendar" aria-hidden="true"></i> <%= formatDate(job.created_at) %></td>
       </tr>
     <% end %>
   </tbody>

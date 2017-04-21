@@ -1,3 +1,197 @@
 // Place all the styles related to the jobs controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+$btn-background: #49BCB5;
+$btn-background-hover: #00DBE9;
+$gray-color: #909090;
+
+.link {
+  color: #000;
+  cursor: pointer;
+  &:hover {
+    color: #006CFF;
+    text-decoration: none;
+  }
+}
+
+.job-wrapper {
+  margin-top: 30px;
+  .welcome-left-aside {
+    top: 0;
+    left: 0;
+    width: 120px;
+  }
+  .job-content {
+    width: 100%;
+    padding-left: 135px;
+    box-sizing: border-box;
+  }
+}
+
+.aside-list {
+  width: 100%;
+  color: #909090;
+  padding: 0;
+  li {
+    margin: 0 0 8px;
+    padding: 6px 9px;
+    cursor: pointer;
+    .fa {
+      width: 24px;
+      font-size: 18px;
+    }
+    span {
+      padding-left: 16px;
+    }
+    &.true, &:hover {
+      color: #007fff;
+      background-color: hsla(0,0%,87%,.2);
+      border-radius: 2px;
+    }
+    &.true {
+      font-weight: 700;
+    }
+  }
+}
+
+.job_list {
+  padding-bottom: 20px;
+  margin-top: 20px;
+}
+.list_item {
+  background: #fff;
+  padding: 10px 22px;
+  // margin-bottom: 20px;
+  border-bottom: 2px dashed #F2F3F3;
+  &:hover {
+    background: #F8F9FA;
+  }
+  .position_name {
+    height: 34px;
+    line-height: 28px;
+    h2 {
+      font-size: 16px;
+      line-height: 28px;
+      @extend .link
+    }
+    span {
+      margin-left: 10px;
+      color: $gray-color;
+      font-size: 14px;
+      margin-left: 10px;
+    }
+  }
+  .salary {
+    color: #03A9F4;
+  }
+  .company {
+    height: 34px;
+    line-height: 28px;
+    .fa {
+      font-size: 18px;
+      margin-right: 4px;
+    }
+    @extend .link
+  }
+  .location {
+    color: $gray-color;
+    .fa {
+      font-size: 22px;
+      margin-right: 4px;
+    }
+  }
+  .right {
+    text-align: right;
+  }
+}
+
+.show {
+  color: #555555;
+  .back-btn {
+    margin-bottom: 25px;
+  }
+  .company_name {
+    margin: -2px 0 15px 0;
+    font-size: 16px;
+    color: #0087FF;
+  }
+  .job_title {
+    font-size: 36px;
+    color: #333;
+    line-height: 36px;
+    margin-bottom: 13px;
+  }
+  .info {
+    margin-top: 2px;
+    margin-bottom: 5px;
+    .fa {
+      font-size: 18px;
+      margin-right: 2px;
+      margin-left: 2px;
+    }
+  }
+  .date {
+    padding-top: 10px;
+    font-size: 14px;
+    color: #999;
+  }
+  .description-title {
+    margin-top: 40px;
+    font-size: 16px;
+  }
+  .description {
+    margin-top: 13px;
+    color: #333;
+    line-height: 22px;
+  }
+  .send-resume {
+    margin-top: 20px;
+    margin-top: -48px;
+    float: right;
+    .btn-success {
+      padding: 8px 30px;
+      font-size: 16px;
+    }
+  }
+  .salary {
+    color: $btn-background;
+  }
+}
+
+.search-wrap {
+  width: 500px;
+  margin: 10px auto;
+}
+
+.lp-btn {
+  display: block;
+  width: 165px;
+  height: 50px;
+  line-height: 48px;
+  margin: 20px auto;
+  color: #fff;
+  background: #03A9F4;
+  font-size: 1.428em;
+  letter-spacing: 2px;
+  cursor: pointer;
+  border: 2px solid #03A9F4;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 4px;
+  &:hover {
+    text-decoration: none;
+  }
+}
+.lp-bottom {
+  text-align: center;
+  p {
+    color: #fff;
+    font-size: 24px;
+  }
+  background: #092C3E;
+  padding: 60px;
+}
+
+.advantage {
+  margin-top: 40px;
+}

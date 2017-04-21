@@ -10,7 +10,7 @@
         <th>公司地点</th>
         <th>发布时间</th>
         <% if !current_user || !current_user.is_admin? %>
-        <th>投个简历</th>
+        <th>立即申请</th>
         <% end %>
       </tr>
     </thead>
@@ -37,6 +37,11 @@
 
 <% else %>
   <br><br>
+  <br><br>
   <h4 class="text-center">没有相关职位，尝试搜索其他的关键字</h4>
+  <br><br>
+  <div class="text-center">
+    <a class="btn btn-lg btn-info" href="/jobs">浏览职位</a>
+  </div>
 <% end %>
 </div>
