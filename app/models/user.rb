@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :resumes
+
 
   def admin?
     is_admin
@@ -17,4 +17,8 @@ class User < ApplicationRecord
       self.email.split("@").first
     end
   end
+
+  has_many :resumes
+  has_many :job_relationships
+  has_many :participated_jobs, through: :job_relationships, source: :job
 end

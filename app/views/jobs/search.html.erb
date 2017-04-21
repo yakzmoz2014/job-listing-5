@@ -1,0 +1,42 @@
+<div class="search-result">
+<% if @jobs.length > 0 %>
+  <table class="table table-hover table-boldered table-striped custab">
+    <thead>
+      <tr>
+        <th>职位名称</th>
+        <th>工作类型</th>
+        <th>工资</th>
+        <th>公司名称</th>
+        <th>公司地点</th>
+        <th>发布时间</th>
+        <% if !current_user || !current_user.is_admin? %>
+        <th>投个简历</th>
+        <% end %>
+      </tr>
+    </thead>
+    <tbody>
+      <% @jobs.each do |job| %>
+        <tr>
+          <td><%= link_to(job.title, job_path(job)) %></td>
+          <td> <%= job.category %> </td>
+          <td><span class="label label-success"><%= job.wage_lower_bound %>K - <%= job.wage_upper_bound %>K</span></td>
+          <td><%= link_to(job.company, '/jobs/search?utf8=✓&q=' + job.company) %></td>
+          <td><span class="fa fa-map-marker"></span> <%= job.location %></td>
+          <td><i class="fa fa-calendar" aria-hidden="true"></i> <%= formatDate(job.created_at) %></td>
+          <% if !current_user || !current_user.is_admin? %>
+            <td><%= render 'job_apply', :job => job %></td>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <div class="text-center">
+    <%= will_paginate @jobs, renderer: BootstrapPagination::Rails  %>
+  </div>
+
+<% else %>
+  <br><br>
+  <h4 class="text-center">没有相关职位，尝试搜索其他的关键字</h4>
+<% end %>
+</div>
