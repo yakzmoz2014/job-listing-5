@@ -304,6 +304,62 @@
   }
 }
 
+
+/*---------hot job section--------*/
+
+
+.hjc-ul {
+  padding: 0 20px 0;
+  margin: 50px auto 0;
+  text-align: center;
+  overflow: hidden;
+  height: 355px;
+  width: 1024px;
+  li {
+    display: inline-block;
+    width: 220px;
+    height: 150px;
+    margin-left: 10px;
+    margin-right: 10px;
+    position: relative;
+    margin-bottom: 50px;
+    overflow: hidden;
+    .hjc-img-wrap {
+      width: 220px;
+      height: 150px;
+      img {
+        width: 100%;
+        height: auto;
+        
+      }
+      &:hover {
+        transform: scale(1.2);
+        -webkit-transform: scale(1.2);
+        -webkit-transition: all .8s;
+        transition: all .8s;
+      }
+    }
+    .title {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(0,0,0,.7);
+      font-size: 16px;
+      padding: 6px 25px;
+      color: #fff;
+      transition: opacity .4s ease-in-out;
+    }
+  }
+  .more {
+    .title {
+      height: 150px;
+      line-height: 130px;
+      font-size: 20px;
+    }
+  }
+}
+
 /*---------footer---------------*/
 
 .footer-distributed{
@@ -474,7 +530,7 @@
 	}
 }
 
-//---------sidebar-------
+//---------right sidebar-------
 
 .sidebar {
   display: none;

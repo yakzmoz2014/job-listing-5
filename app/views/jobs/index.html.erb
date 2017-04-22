@@ -10,6 +10,7 @@
     <li><%= link_to("按发布时间排序", jobs_path)%> </li>
   </ul>
 </div>
+
 <table class="table table-boldered custab">
   <thead>
     <tr>
@@ -34,3 +35,7 @@
     <% end %>
   </tbody>
 </table>
+
+<div class="text-center">
+      <%= will_paginate @jobs %>
+</div>

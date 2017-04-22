@@ -2,15 +2,15 @@ class JobsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :update, :edit, :destroy]
   before_filter :validate_search_key, :only => [:search]
 
-  
+
   def index
     @jobs = case params[:order]
     when 'by_lower_bound'
-      Job.published.order('wage_lower_bound DESC').paginate(:page => params[:page], :per_page => 10)
+      Job.published.order('wage_lower_bound DESC').paginate(:page => params[:page], :per_page => 20)
     when 'by_upper_bound'
-      Job.published.order('wage_upper_bound DESC').paginate(:page => params[:page], :per_page => 10)
+      Job.published.order('wage_upper_bound DESC').paginate(:page => params[:page], :per_page => 20)
     else
-      Job.published.recent.paginate(:page => params[:page], :per_page => 10)
+      Job.published.recent.paginate(:page => params[:page], :per_page => 20)
     end
   end
 
@@ -57,11 +57,11 @@ class JobsController < ApplicationController
 
   def search
     if @query_string.present?
-      search_result = Job.ransack(@search_criteria).result(:distinct => true)
-      @jobs = search_result.paginate(:page => params[:page], :per_page => 20 )
+      search_result = Job.ransack(@search_criteria).result(distinct: true)
+      @jobs = search_result.paginate(:page => params[:page], per_page: 10 )
       puts @jobs
     else
-      @jobs = Job.publish.recent.paginate(:page => params[:page], :per_page => 15)
+      @jobs = Job.publish.recent.paginate(page: params[:page], per_page: 10)
       puts @jobs
     end
   end
@@ -73,7 +73,7 @@ class JobsController < ApplicationController
     end
 
    def search_criteria(query_string)
-     { :title_or_description_or_contact_email_or_location_or_company_or_category_cont => query_string }
+     { :title_or_description_or_contact_email_or_location_or_company_or_category_name_cont => query_string }
    end
 
 
