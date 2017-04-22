@@ -26,7 +26,7 @@
     <% @jobs.each do |job| %>
       <tr>
         <td><i class="fa fa-briefcase" aria-hidden="true"></i> <%= link_to(job.title, job_path(job)) %></td>
-        <td><i class="fa fa-list-alt" aria-hidden="true"></i> <%= job.category %> </td>
+        <td><i class="fa fa-list-alt" aria-hidden="true"></i> <%= job.category_name %> </td>
         <td><i class="fa fa-money" aria-hidden="true"></i> <span class="label label-success"><%= job.wage_lower_bound %>K</span> - <span class="label label-success"><%= job.wage_upper_bound %>K</span></td>
         <td><i class="fa fa-building" aria-hidden="true"></i> <%= job.company %></td>
         <td><span class="fa fa-map-marker"></span> <%= job.location %></td>
@@ -37,5 +37,5 @@
 </table>
 
 <div class="text-center">
-      <%= will_paginate @jobs %>
+      <%= will_paginate @jobs, renderer: BootstrapPagination::Rails %>
 </div>

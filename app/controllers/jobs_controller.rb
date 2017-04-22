@@ -6,11 +6,11 @@ class JobsController < ApplicationController
   def index
     @jobs = case params[:order]
     when 'by_lower_bound'
-      Job.published.order('wage_lower_bound DESC').paginate(:page => params[:page], :per_page => 20)
+      Job.published.order('wage_lower_bound DESC').paginate(:page => params[:page], :per_page => 15)
     when 'by_upper_bound'
-      Job.published.order('wage_upper_bound DESC').paginate(:page => params[:page], :per_page => 20)
+      Job.published.order('wage_upper_bound DESC').paginate(:page => params[:page], :per_page => 15)
     else
-      Job.published.recent.paginate(:page => params[:page], :per_page => 20)
+      Job.published.recent.paginate(:page => params[:page], :per_page => 15)
     end
   end
 
@@ -31,7 +31,7 @@ class JobsController < ApplicationController
     @job = Job.find(params[:id])
 
     if @job.is_hidden
-      flash[:warning] = "This Job already archived"
+      flash[:warning] = "工作已归档"
       redirect_to root_path
     end
   end
@@ -43,7 +43,7 @@ class JobsController < ApplicationController
   def update
     @job = Job.find(params[:id])
     if @job.update(job_params)
-      redirect_to jobs_path, notice: "Update success"
+      redirect_to jobs_path, notice: "更新成功"
     else
       render :edit
     end
@@ -52,16 +52,16 @@ class JobsController < ApplicationController
   def destroy
     @job = Job.find(params[:id])
     @job.destroy
-    redirect_to jobs_path, alert: "Job was deleted"
+    redirect_to jobs_path, alert: "职位已经删除"
   end
 
   def search
     if @query_string.present?
       search_result = Job.ransack(@search_criteria).result(distinct: true)
-      @jobs = search_result.paginate(:page => params[:page], per_page: 10 )
+      @jobs = search_result.paginate(:page => params[:page], per_page: 15 )
       puts @jobs
     else
-      @jobs = Job.publish.recent.paginate(page: params[:page], per_page: 10)
+      @jobs = Job.publish.recent.paginate(page: params[:page], per_page: 15)
       puts @jobs
     end
   end

@@ -11,16 +11,15 @@ puts "Admin account created."
 
 jobs = [
   "RoR工程师",
-  "api程序员",
-  "iOS开发工程师",
-  "JavaScript工程师",
+  "产品经理",
   "HTML5工程师",
   "微信运营",
   "测试工程师",
-  "投资合伙人",
-  "核算师",
+  "销售总监",
+  "高级执行总监",
   "人力资源总监",
-  "EPS设计工程师"
+  "成本核算师",
+  "UI设计师"
 ]
 category_name = [
   "技术",
