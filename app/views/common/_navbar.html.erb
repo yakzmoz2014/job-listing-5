@@ -1,6 +1,10 @@
+<% if current_page?('/') %>
+  <nav class="navbar navbar-default transparent" role="navigation" id="navbar">
+<% else %>
+  <nav class="navbar navbar-default black" role="navigation">
+<% end %>
 
-
-<nav class="navbar navbar-default " role="navigation">
+<div class="container">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -50,4 +54,5 @@
     <!-- /.navbar-collapse -->
   </div>
   <!-- /.container-fluid -->
+</div>
 </nav>
