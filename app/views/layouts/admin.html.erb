@@ -8,7 +8,7 @@
       <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
-     <div class="container-fluid">
+     <div class="container container-fluid", style="margin-top: 70px;">
        <div class="row">
          <%= render "common/navbar" %>
        </div>
@@ -19,9 +19,12 @@
                 <li class="active"><%= link_to("Jobs", admin_jobs_path ) %> </li>
              </ul>
            </div>
-
            <div class="col-md-10">
+           
              <%= yield %>
+
+             <p>test</p>
+
            </div>
         </div>
      </div>

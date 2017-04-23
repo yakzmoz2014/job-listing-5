@@ -1,17 +1,19 @@
+
 <br>
 <div class="group">
   <%= link_to("添加职位", new_admin_job_path, class: "btn btn-success pull-right") %>
 </div>
 
 <br><br>
-<table class="table table-boldered  custab">
+<table class="table table-hover table-striped table-boldered custab">
   <thead>
     <tr>
       <th>职位</th>
       <th>收到简历数量</th>
+      <th>工作类型</th>
       <th>薪水</th>
-      <th>管理选项</th>
       <th>发布时间</th>
+      <th>管理</li>
     </tr>
   </thead>
   <tbody>
@@ -22,19 +24,25 @@
           <%= link_to(job.title, admin_job_path(job)) %>
         </td>
         <td><%= link_to(job.resumes.count, admin_job_resumes_path(job)) %></td>
+        <td><i class="fa fa-list-alt" aria-hidden="true"></i> <%= job.category_name %> </td>
         <td>
           <span class="label label-success"><%= job.wage_lower_bound %>K</span> - <span class="label label-success"><%= job.wage_upper_bound %>K</span>
         </td>
+        <td><%= formatDate(job.created_at) %></td>
         <td>
-          <%= link_to edit_admin_job_path(job), class: 'btn btn-xs btn-info' do %><i class="fa fa-pencil">Edit</i><% end %>
-          <%= link_to admin_job_path(job), method: :delete, class: 'btn btn-xs btn-danger', data: {confirm: "Are you sure?"} do %><i class="fa fa-trash-o">删除</i><% end %>
-          <% if job.is_hidden %>
-            <%= link_to publish_admin_job_path(job),method: :post, class: "btn btn-xs btn-success" do %><i class="fa fa-eye">发布</i><% end %>
+          <% if current_user && current_user == job.user %>
+            <%= link_to edit_admin_job_path(job), class: 'btn btn-xs btn-info' do %><i class="fa fa-pencil">Edit</i><% end %>
+            <%= link_to admin_job_path(job), method: :delete, class: 'btn btn-xs btn-danger', data: {confirm: "Are you sure?"} do %><i class="fa fa-trash-o">删除</i><% end %>
+            <% if job.is_hidden %>
+              <%= link_to publish_admin_job_path(job),method: :post, class: "btn btn-xs btn-success" do %><i class="fa fa-eye">发布</i><% end %>
+            <% else %>
+              <%= link_to hide_admin_job_path(job), method: :post,  class: 'btn btn-xs btn-warning' do%><i class="fa fa-eye-slash"></i>隐藏<% end %>
+            <% end %>
           <% else %>
-            <%= link_to hide_admin_job_path(job), method: :post,  class: 'btn btn-xs btn-warning' do%><i class="fa fa-eye-slash"></i>隐藏<% end %>
+            <%= "不是管理员" %>
           <% end %>
         </td>
-        <td><%= formatDate(job.created_at) %></td>
+
       </tr>
     <% end %>
  </tbody>
