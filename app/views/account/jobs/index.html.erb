@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="content">
+    <h2 style="text-align: center;">已经投递的职位</h2>
+
+    <% if @jobs.length > 0 %>
+      <table class="table table-hover table-boldered table-striped custab">
+        <thead>
+          <tr>
+            <th>职位名称</th>
+            <th>工作种类</th>
+            <th>工资</th>
+            <th>公司名称</th>
+            <th>公司地点</th>
+            <th>发布时间</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @jobs.each do |job| %>
+            <tr>
+              <td><%= link_to(job.title, job_path(job)) %></td>
+              <td><%= link_to(job.category_name, "/jobs/search?utf8=✓&q=" + job.category_name) %></td>
+              <td><span class="label label-success"><%= job.wage_lower_bound %>K - <%= job.wage_upper_bound %>k</span></td>
+              <td><%= link_to(job.company, '/jobs/search?utf8=✓&q=' + job.company) %></td>
+              <td><span class="fa fa-map-marker"></span> <%= job.location %></td>
+              <td><%= formatDate(job.created_at) %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+
+      <div class="text-center">
+        <%= will_paginate @jobs, renderer: BootstrapPagination::Rails %>
+      </div>
+    <% else %>
+      <p class="empty-message">你还没有投递过简历哦， <%= link_to("查看职位", jobs_path, class: "btn btn-success") %></p>
+    <% end %>
+    </div>
+  </div>
+</div>
