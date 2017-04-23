@@ -5,47 +5,47 @@
 
 <br><br>
 <% if @jobs.length > 0 %>
-<table class="table table-hover table-striped table-boldered custab">
-  <thead>
-    <tr>
-      <th>职位</th>
-      <th>收到简历数量</th>
-      <th>工作类型</th>
-      <th>薪金</th>
-      <th>发布时间</th>
-      <th>管理</li>
-    </tr>
-  </thead>
-  <tbody>
-    <% @jobs.each do |job| %>
+  <table class="table table-hover table-striped table-boldered custab">
+    <thead>
       <tr>
-        <td>
-          <%= render_job_status(job) %>
-          <%= link_to(job.title, admin_job_path(job)) %>
-        </td>
-        <td><%= link_to(job.resumes.count, admin_job_resumes_path(job)) %></td>
-        <td><i class="fa fa-list-alt" aria-hidden="true"></i> <%= job.category_name %> </td>
-        <td>
-          <span class="label label-success"><%= job.wage_lower_bound %>K</span> - <span class="label label-success"><%= job.wage_upper_bound %>K</span>
-        </td>
-        <td><%= formatDate(job.created_at) %></td>
-        <td>
-            <%= link_to edit_admin_account_job_path(job), class: 'btn btn-xs btn-info' do %><i class="fa fa-pencil">编辑</i><% end %>
-            <%= link_to admin_account_job_path(job), method: :delete, class: 'btn btn-xs btn-danger', data: {confirm: "Are you sure?"} do %><i class="fa fa-trash-o">删除</i><% end %>
-            <% if job.is_hidden %>
-              <%= link_to publish_admin_account_job_path(job),method: :post, class: "btn btn-xs btn-success" do %><i class="fa fa-eye">发布</i><% end %>
-            <% else %>
-              <%= link_to hide_admin_account_job_path(job), method: :post,  class: 'btn btn-xs btn-warning' do%><i class="fa fa-eye-slash"></i>隐藏<% end %>
-            <% end %>
-        </td>
+        <th>职位</th>
+        <th>收到简历数量</th>
+        <th>工作类型</th>
+        <th>薪金</th>
+        <th>发布时间</th>
+        <th>管理</li>
       </tr>
-    <% end %>
- </tbody>
-</table>
+    </thead>
+    <tbody>
+      <% @jobs.each do |job| %>
+        <tr>
+          <td>
+            <%= render_job_status(job) %>
+            <%= link_to(job.title, admin_job_path(job)) %>
+          </td>
+          <td><%= link_to(job.resumes.count, admin_job_resumes_path(job)) %></td>
+          <td><i class="fa fa-list-alt" aria-hidden="true"></i> <%= job.category_name %> </td>
+          <td>
+            <span class="label label-success"><%= job.wage_lower_bound %>K</span> - <span class="label label-success"><%= job.wage_upper_bound %>K</span>
+          </td>
+          <td><%= formatDate(job.created_at) %></td>
+          <td>
+              <%= link_to edit_admin_account_job_path(job), class: 'btn btn-xs btn-info' do %><i class="fa fa-pencil">编辑</i><% end %>
+              <%= link_to admin_account_job_path(job), method: :delete, class: 'btn btn-xs btn-danger', data: {confirm: "Are you sure?"} do %><i class="fa fa-trash-o">删除</i><% end %>
+              <% if job.is_hidden %>
+                <%= link_to publish_admin_account_job_path(job),method: :post, class: "btn btn-xs btn-success" do %><i class="fa fa-eye">发布</i><% end %>
+              <% else %>
+                <%= link_to hide_admin_account_job_path(job), method: :post,  class: 'btn btn-xs btn-warning' do%><i class="fa fa-eye-slash"></i>隐藏<% end %>
+              <% end %>
+          </td>
+        </tr>
+      <% end %>
+   </tbody>
+  </table>
 
-<div class="text-center">
-      <%= will_paginate @jobs, renderer: BootstrapPagination::Rails %>
-</div>
+  <div class="text-center">
+        <%= will_paginate @jobs, renderer: BootstrapPagination::Rails %>
+  </div>
 <% else %>
-<p class="empty-message">还没有发布任何职位哦，赶紧添加一个职位试试！</p>
+  <p class="empty-message">尚未发布职位，赶紧添加一个试试！</p>
 <% end %>

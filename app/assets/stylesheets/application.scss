@@ -496,6 +496,76 @@ body {
   padding-bottom: 40px;
 }
 
+/*--- Job ---*/
+
+.job-content{
+  min-height: 725px;
+  margin-top: 100px;
+
+  a{
+    text-decoration: none;
+  }
+}
+
+.side-box{
+ display: inline-block;
+ position: absolute;
+ margin-top: 112px; //这些根据你的页面显示自己调节数值
+ margin-left: 35px;
+ padding-bottom: 12.5px;
+ min-width: 260px;
+
+ background-color: #31BAFD;
+ color: #fff;
+ box-shadow: 2px 2px 3px #aaa;
+}
+
+.job-box{
+ border: 1.5px solid #ddd;
+ box-shadow: 1px 1px 5px #ccc;
+ margin-top: 12.5px;
+ padding: 15px 1px 1px 20px;
+ background-color: #fff;
+ color: #555;
+ font-size: 16px;
+
+ div{
+ margin-bottom: 5px;
+ }
+}
+
+  .suggest-title{
+    padding: 12.5px;
+    text-align: center;
+    font-size: 20px;
+    letter-spacing: 0.5px;
+  }
+
+
+  .suggest-content{
+    background-color: #fff;
+    padding: 7.5px;
+    border: 0.5px dashed #eee;
+
+
+    h3{
+  margin-top: 1px;
+  font-size: 16px;
+}
+
+p{
+  font-size: 16px;
+  color: #4A545C;
+  letter-spacing: -1px;
+}
+
+span{
+  color: #aaa;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+}
+  }
+
 /*---------footer---------------*/
 
 .footer-distributed{

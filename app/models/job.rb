@@ -12,6 +12,7 @@ class Job < ApplicationRecord
 
   scope :recent, -> {order("created_at DESC")}
   scope :published, -> { where(is_hidden: false) }
+  scope :random5, -> { limit(5).order("RANDOM()") }
 
   def publish!
     self.is_hidden = false
