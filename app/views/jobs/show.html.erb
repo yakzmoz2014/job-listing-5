@@ -10,6 +10,15 @@
     <span><span class="fa fa-map-marker"></span><%= @job.location%></span>
     <span>|</span>
     <span><span class="fa fa-calendar"></span><%= formatDate(@job.created_at) %> 发布</span>
+    <span>
+      <% if current_user && current_user.is_member_of?(@job) %>
+        <i class="fa fa-heart" aria-hidden="true"></i>
+        <%= link_to("取消收藏", quit_job_path(@job), method: :post, class: "btn btn-sm btn-default") %>
+      <% else %>
+        <i class="fa fa-heart-o" aria-hidden="true"></i>
+        <%= link_to("收藏职位", join_job_path(@job), method: :post, class: "btn btn-sm btn-default") %>
+      <% end %>
+    </span>
   </p>
 
   <p class="send-resume">

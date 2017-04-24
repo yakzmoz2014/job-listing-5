@@ -22,6 +22,15 @@ class User < ApplicationRecord
     participated_jobs.include?(job)
   end
 
+  def join!(job)
+    participated_jobs << job
+  end
+
+  def quit!(job)
+    participated_jobs.delete(job)
+  end
+
+
   has_many :resumes
   has_many :jobs
   has_many :job_relationships

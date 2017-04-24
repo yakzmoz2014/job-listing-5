@@ -1,5 +1,5 @@
 class JobsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :update, :edit, :destroy]
+  before_action :authenticate_user!, only: [:new, :create, :update, :edit, :destroy, :join, :quit]
   before_filter :validate_search_key, :only => [:search]
 
 
@@ -56,6 +56,31 @@ class JobsController < ApplicationController
     @job = Job.find(params[:id])
     @job.destroy
     redirect_to jobs_path, alert: "职位已经删除"
+  end
+
+  def join
+    @job = Job.find(params[:id])
+
+    if !current_user.is_member_of?(@job)
+      current_user.join!(@job)
+      flash[:notice] = '收藏职位成功'
+    else
+      flash[:warning] = '已经收藏了，请勿重复操作'
+    end
+    redirect_to job_path(@job)
+  end
+
+  def quit
+    @job = Job.find(params[:id])
+
+    if current_user.is_member_of?(@job)
+      current_user.quit!(@job)
+      flash[:alert] = '取消收藏成功'
+    else
+      flash[:warning] = '尚未收藏'
+    end
+    redirect_to job_path(@job)
+
   end
 
   def search
