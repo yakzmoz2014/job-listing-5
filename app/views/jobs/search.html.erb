@@ -15,6 +15,7 @@
       </tr>
     </thead>
     <tbody>
+      <h2 class="text-center"> 相关职位 </h2>
       <% @jobs.each do |job| %>
         <tr>
           <td><i class="fa fa-briefcase" aria-hidden="true"></i> <%= link_to(job.title, job_path(job)) %></td>
@@ -23,7 +24,7 @@
           <td><i class="fa fa-building" aria-hidden="true"></i> <%= link_to(job.company, '/jobs/search?utf8=✓&q=' + job.company) %></td>
           <td><span class="fa fa-map-marker"></span> <%= job.location %></td>
           <td><i class="fa fa-calendar" aria-hidden="true"></i> <%= formatDate(job.created_at) %></td>
-          
+
             <td><%= render 'job_apply', :job => job %></td>
 
         </tr>
