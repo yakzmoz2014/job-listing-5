@@ -1,6 +1,6 @@
 <div class="container">
   <div class="content">
-    <h2 style="text-align: center;">已经投递的职位</h2>
+    <h2 style="text-align: center;">已经收藏的职位</h2>
 
     <% if @jobs.length > 0 %>
       <table class="table table-hover table-boldered table-striped custab">
@@ -32,7 +32,7 @@
         <%= will_paginate @jobs, renderer: BootstrapPagination::Rails %>
       </div>
     <% else %>
-      <p class="empty-message">你还没有投递过简历哦， <%= link_to("查看职位", jobs_path, class: "btn btn-success") %></p>
+      <p class="empty-message">你还没有收藏过任何职位， <%= link_to("查看职位", jobs_path, class: "btn btn-success") %></p>
     <% end %>
     </div>
   </div>
