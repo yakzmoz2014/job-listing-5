@@ -1,5 +1,5 @@
-<% if current_user && current_user.is_member_of?(job) %>
-  <%= link_to("已投递", '#', class: "btn btn-info btn-md disabled") %>
-<% else %>
+<% if !current_user || !current_user.is_member_of?(job) %>
   <%= link_to("立即申请", new_job_resume_path(job), class: "btn btn-info btn-md") %>
+<% else %>
+  <%= link_to("已收藏", '#', class: "btn btn-info btn-md disabled") %>
 <% end %>

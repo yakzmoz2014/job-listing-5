@@ -11,19 +11,20 @@
   </head>
 
   <body>
-    <div class="container-fluid">
-      <div class="row">
-        <%= render "common/navbar" %>
+    <div class="content" >
+        <div class="row">
+          <%= render "common/navbar" %>
+        </div>
+        <% if current_page?('/') %>
+          <div>
+        <% else %>
+          <div class="container-fluid wrapper-container container">
+          <%= render "common/flashes" %>
+        <% end %>
+          <%= yield %>
+        </div>
+      <%= render 'common/footer' %>
       </div>
-      <% if current_page?('/') %>
-        <div>
-      <% else %>
-        <div class="container-fluid wrapper-container container">
-        <%= render "common/flashes" %>
-      <% end %>
-        <%= yield %>
-    </div>
-    <%= render 'common/footer' %>
   </div>
   </body>
 </html>

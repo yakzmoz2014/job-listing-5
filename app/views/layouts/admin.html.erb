@@ -8,7 +8,8 @@
       <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
-     <div class="container container-fluid", style="margin-top: 70px;">
+    <div class="content">
+     <div class="container-fluid", style="margin-top: 70px;">
        <div class="row">
          <%= render "common/navbar" %>
        </div>
@@ -16,16 +17,15 @@
          <div class="row">
            <div class="col-md-2">
              <ul class="nav nav-pills nav-stacked" style="max-width: 300px; padding-top:20px;">
-                <li class="active"><%= link_to("所有职位", admin_jobs_path ) %> </li>
+                <li class="active"><%= link_to("所有职位", admin_account_jobs_path ) %> </li>
              </ul>
            </div>
            <div class="col-md-10">
-
              <%= yield %>
-
            </div>
         </div>
      </div>
+   </div>
      <%= render "common/footer" %>
    </body>
  </html>

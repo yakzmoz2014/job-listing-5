@@ -4,7 +4,7 @@ class Admin::Account::JobsController < ApplicationController
   layout "admin"
 
   def index
-    @jobs = Job.all.recent.paginate(:page => params[:page], :per_page => 20)
+    @jobs = current_user.jobs.all.recent.paginate(:page => params[:page], :per_page => 20)
   end
 
   def new
@@ -16,7 +16,7 @@ class Admin::Account::JobsController < ApplicationController
     @job.user = current_user
 
     if @job.save
-      redirect_to admin_jobs_path
+      redirect_to admin_account_jobs_path
     else
       render :new
     end
@@ -33,7 +33,7 @@ class Admin::Account::JobsController < ApplicationController
   def update
     @job = Job.find(params[:id])
     if @job.update(job_params)
-      redirect_to admin_job_path, notice: "更新成功"
+      redirect_to admin_account_jobs_path, notice: "更新成功"
     else
       render :edit
     end
@@ -42,7 +42,7 @@ class Admin::Account::JobsController < ApplicationController
   def destroy
     @job = Job.find(params[:id])
     @job.destroy
-    redirect_to admin_jobs_path, alert: "职位已经删除"
+    redirect_to admin_account_jobs_path, alert: "职位已经删除"
   end
 
   def publish

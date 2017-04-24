@@ -9,9 +9,9 @@
         <th>公司名称</th>
         <th>公司地点</th>
         <th>发布时间</th>
-        <% if !current_user || !current_user.is_admin? %>
+
         <th>立即申请</th>
-        <% end %>
+
       </tr>
     </thead>
     <tbody>
@@ -23,9 +23,9 @@
           <td><i class="fa fa-building" aria-hidden="true"></i> <%= link_to(job.company, '/jobs/search?utf8=✓&q=' + job.company) %></td>
           <td><span class="fa fa-map-marker"></span> <%= job.location %></td>
           <td><i class="fa fa-calendar" aria-hidden="true"></i> <%= formatDate(job.created_at) %></td>
-          <% if !current_user || !current_user.is_admin? %>
+          
             <td><%= render 'job_apply', :job => job %></td>
-          <% end %>
+
         </tr>
       <% end %>
     </tbody>
