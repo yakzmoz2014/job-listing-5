@@ -16,6 +16,7 @@ class Admin::JobsController < ApplicationController
     @job.user = current_user
 
     if @job.save
+      current_user.join!(@job)
       redirect_to admin_jobs_path
     else
       render :new
